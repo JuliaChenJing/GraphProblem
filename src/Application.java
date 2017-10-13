@@ -11,6 +11,14 @@ public class Application {
 		Node c2=new Node("c2");
 		Node c3=new Node("c3");
 		
+		Node[] a1Ad={b1};
+		a1.setAdjacent( a1Ad);
+		
+		Node[] a2Ad={b1,b2,b3};
+		a1.setAdjacent( a2Ad);
+		
+		
+		
 		Node[] nodes={a1,a2,b1,b2,b3,c1,c2,c3};
 		Graph graph=new Graph();
 		graph.setNodes(nodes);
