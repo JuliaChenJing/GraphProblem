@@ -1,12 +1,12 @@
-package lunchLocation;
+package lunchLocation.domain;
 
 import java.util.Arrays;
 
-class Graph {
+public class Graph {
 
 	Node[] nodes;
 
-	Node[] getNodes() {
+	public Node[] getNodes() {
 		return nodes;
 	}
 

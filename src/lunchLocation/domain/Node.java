@@ -1,8 +1,8 @@
-package lunchLocation;
+package lunchLocation.domain;
 
-class Node {
+public class Node {
 
-	Node(String name) {
+	public Node(String name) {
 		this.name = name;
 	}
 

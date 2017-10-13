@@ -1,7 +1,9 @@
-package lunchLocation;
+package lunchLocation.app;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import lunchLocation.domain.*;
+import lunchLocation.service.GraphService;;
 
 public class Application {
 
