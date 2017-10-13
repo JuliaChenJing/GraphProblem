@@ -41,9 +41,5 @@ public class Application {
 		
 		System.out.println(GraphService.visitable(graph, a2, c2));
 		System.out.println(GraphService.visitable(graph, a2, c3));
-		ArrayList<LinkedList<Node>> resultList1 = GraphService.visitPath(graph, a2, c2);
-		System.out.println(resultList1);
-		ArrayList<LinkedList<Node>> resultList2 = GraphService.visitPath(graph, a2, c3);
-		System.out.println(resultList2);
 	}
 }

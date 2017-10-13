@@ -1,5 +1,6 @@
 package allpaths;
 
+import java.util.Arrays;
 
 public class Graph {
 	
@@ -11,6 +12,11 @@ public class Graph {
 
 	public void setNodes(Node[] nodes) {
 		this.nodes = nodes;
+	}
+
+	@Override
+	public String toString() {
+		return "Graph [nodes=" + Arrays.toString(nodes) + "]";
 	}
 	
 }
