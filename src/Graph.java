@@ -1,8 +1,6 @@
 import java.util.LinkedList;
 
-
 class Graph {
-
 
 	Node[] nodes;
 
@@ -49,6 +47,4 @@ class Graph {
 		return false;
 	}
 
-
 }
-
