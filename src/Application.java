@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Application {
 
@@ -11,31 +13,36 @@ public class Application {
 		Node c2=new Node("c2");
 		Node c3=new Node("c3");
 		
-		Node[] a1Ad={b1};
-		a1.setAdjacent( a1Ad);
+		Node[] a1Adjacent={b1};
+		a1.setAdjacent( a1Adjacent);
 		
-		Node[] a2Ad={b1,b2,b3};
-		a2.setAdjacent( a2Ad);
+		Node[] a2Adjacent={b1,b2,b3};
+		a2.setAdjacent( a2Adjacent);
 		
-		Node[] b1Ad={c1};
-		b1.setAdjacent( b1Ad);
+		Node[] b1Adjacent={c1};
+		b1.setAdjacent( b1Adjacent);
 		
-		Node[] b2Ad={c2,c3};
-		b2.setAdjacent( b2Ad);
+		Node[] b2Adjacent={c2,c3};
+		b2.setAdjacent( b2Adjacent);
 		
-		Node[] b3Ad={c3};
-		b3.setAdjacent( b3Ad);
+		Node[] b3Adjacent={c3};
+		b3.setAdjacent( b3Adjacent);
 		
-		c1.setAdjacent(null);
-		c2.setAdjacent(null);
-		c3.setAdjacent(null);
+		Node [] noAdjacent={};
+		c1.setAdjacent(noAdjacent);
+		c2.setAdjacent(noAdjacent);
+		c3.setAdjacent(noAdjacent);
 		
 		
 		Node[] nodes={a1,a2,b1,b2,b3,c1,c2,c3};
 		Graph graph=new Graph();
 		graph.setNodes(nodes);
 		
-		System.out.println(Graph.visitable(graph, a2, c2));
-		System.out.println(Graph.visitable(graph, a2, c3));
+		System.out.println(GraphService.visitable(graph, a2, c2));
+		System.out.println(GraphService.visitable(graph, a2, c3));
+		ArrayList<LinkedList<Node>> resultList1 = GraphService.visitPath(graph, a2, c2);
+		System.out.println(resultList1);
+		ArrayList<LinkedList<Node>> resultList2 = GraphService.visitPath(graph, a2, c3);
+		System.out.println(resultList2);
 	}
 }

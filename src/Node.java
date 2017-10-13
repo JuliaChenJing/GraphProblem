@@ -37,4 +37,9 @@ class Node {
 		this.adjacent = adjacent;
 	}
 
+	@Override
+	public String toString() {
+		return  name;
+	}
+
 }
