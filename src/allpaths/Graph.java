@@ -3,14 +3,14 @@ package allpaths;
 
 public class Graph {
 	
-	public String [] adjacentTo(String v) {
-		// TODO Auto-generated method stub
-		return null;
+	Node[] nodes;
+
+	Node[] getNodes() {
+		return nodes;
 	}
 
-	public void addEdge(String string, String string2) {
-		// TODO Auto-generated method stub
-		
+	public void setNodes(Node[] nodes) {
+		this.nodes = nodes;
 	}
-
+	
 }
