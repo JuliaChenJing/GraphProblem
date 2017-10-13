@@ -34,8 +34,8 @@ public class Application {
 		Node[] nodes={a1,a2,b1,b2,b3,c1,c2,c3};
 		Graph graph=new Graph();
 		graph.setNodes(nodes);
-		System.out.println(Graph.search(graph, a2, c2));
 		
-		System.out.println(Graph.search(graph, a2, c3));
+		System.out.println(Graph.visitable(graph, a2, c2));
+		System.out.println(Graph.visitable(graph, a2, c3));
 	}
 }
