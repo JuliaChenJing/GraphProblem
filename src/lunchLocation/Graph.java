@@ -1,3 +1,4 @@
+package lunchLocation;
 import java.util.LinkedList;
 
 class Graph {

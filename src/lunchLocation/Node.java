@@ -1,3 +1,4 @@
+package lunchLocation;
 
 class Node {
 
