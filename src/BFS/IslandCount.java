@@ -1,4 +1,4 @@
-package BFS;
+package bfs;
 
 //请在文件开头注释里说明一下为什么选择这段代�?作为例�?。确�?文件公开�?��?，然�?�贴链接作为回�?：solution is easy to understand and beautiful.
 public class IslandCount {
