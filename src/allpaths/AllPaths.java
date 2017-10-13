@@ -6,15 +6,15 @@ import java.util.Stack;
 
 public class AllPaths<Vertex> {
 
-    private Stack<String> path  = new Stack<String>();   // the current path
-    private Set<String> onPath  = new HashSet<String>();     // the set of vertices on the path
+    private static Stack<String>  path  = new Stack<String>();   // the current path
+    private static Set<String>  onPath  = new HashSet<String>();     // the set of vertices on the path
 
-    public AllPaths(Graph G, String s, String t) {
+    public static void  findAllPaths(Graph G, String s, String t) {
         enumerate(G, s, t);
     }
 
     // use DFS
-    private void enumerate(Graph G, String v, String t) {
+    private static void enumerate(Graph G, String v, String t) {
 
         // add node v to current path from s
         path.push(v);
@@ -48,9 +48,9 @@ public class AllPaths<Vertex> {
         G.addEdge("D", "G");
         G.addEdge("E", "G");
         System.out.println(G);
-        new AllPaths(G, "A", "G");
+        findAllPaths(G, "A", "G");
         System.out.println();
-        new AllPaths(G, "B", "F");
+        findAllPaths(G, "B", "F");
     }
 
 }

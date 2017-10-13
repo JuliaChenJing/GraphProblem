@@ -2,9 +2,6 @@ package allpaths;
 
 
 public class Graph {
-
-	
-
 	
 	public String [] adjacentTo(String v) {
 		// TODO Auto-generated method stub
