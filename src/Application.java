@@ -15,8 +15,20 @@ public class Application {
 		a1.setAdjacent( a1Ad);
 		
 		Node[] a2Ad={b1,b2,b3};
-		a1.setAdjacent( a2Ad);
+		a2.setAdjacent( a2Ad);
 		
+		Node[] b1Ad={c1};
+		b1.setAdjacent( b1Ad);
+		
+		Node[] b2Ad={c2,c3};
+		b2.setAdjacent( b2Ad);
+		
+		Node[] b3Ad={c3};
+		b3.setAdjacent( b3Ad);
+		
+		c1.setAdjacent(null);
+		c2.setAdjacent(null);
+		c3.setAdjacent(null);
 		
 		
 		Node[] nodes={a1,a2,b1,b2,b3,c1,c2,c3};
