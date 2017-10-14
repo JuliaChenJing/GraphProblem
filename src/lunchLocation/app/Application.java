@@ -46,23 +46,38 @@ public class Application {
 
 		
 
-		System.out.println(graph);
+		
+		System.out.println("Graph: "+graph);
 		GraphService graphService=new GraphServiceImpl();
 		System.out.println(graphService.visitable(graph, a2, c2));
 		System.out.println(graphService.visitable(graph, a2, c3));
 		
+		System.out.println("PRINT ALL PATH: ");
 		graphService.printAllPaths(graph, a2, c2);
 		System.out.println();
 		graphService.printAllPaths(graph, a2, c3);
 		
 		System.out.println();
-		
+		System.out.println("FIND ALL PATH: ");
 		List<Stack<Node>> list1 = graphService.findAllPaths(graph, a2, c2);
 		System.out.println(list1);
+		
 		System.out.println();
 		List<Stack<Node>> list2 = graphService.findAllPaths(graph, a2, c3);
 		System.out.println(list2);
-	
+		
+		System.out.println();
+		System.out.println("LUNCH LOCATION: ");
+		System.out.println(graphService.lunchLocation(graph, a2, c2));
+		System.out.println(graphService.lunchLocation(graph, a2, c3));
+		
+		Node[] exception = { b2 };
+		System.out.println();
+		System.out.println("LUNCH LOCATION WITOUT EXCEPTION: ");
+		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c2,exception));
+		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c3,exception));
+	    
+		
 	
 	}
 }

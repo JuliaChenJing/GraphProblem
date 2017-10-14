@@ -49,7 +49,7 @@ public class GraphServiceImpl implements GraphService {
 	private static Set<Node> onPath = new HashSet<Node>(); // the set of
 															// vertices on the
 															// path
-	private static List<Stack<Node>> pathList ;
+	private static List<Stack<Node>> pathList;
 
 	public List<Stack<Node>> findAllPaths(Graph G, Node s, Node t) {
 		pathList = new ArrayList<Stack<Node>>();
@@ -121,6 +121,29 @@ public class GraphServiceImpl implements GraphService {
 		// done exploring from v, so remove from pathForPrint
 		pathForPrint.pop();
 		onPathForPrint.remove(v);
+	}
+
+	@Override
+	public Set<Node> lunchLocation(Graph G, Node s, Node t) {
+
+		List<Stack<Node>> pathForLunch = findAllPaths(G, s, t);
+
+		Set<Node> lunchLocation = new HashSet<Node>();
+		for (Stack<Node> stack : pathForLunch) {
+			while (!stack.isEmpty())
+				lunchLocation.add((Node) stack.pop());
+		}
+		return lunchLocation;
+	}
+
+	@Override
+	public Set<Node> lunchLocationWithoutException(Graph G, Node s, Node t, Node [] nodes) {
+
+		Set<Node> lunchLocation = lunchLocation(G, s, t);
+		for (Node n : nodes)
+			lunchLocation.remove(n);
+		return lunchLocation;
+
 	}
 
 }
