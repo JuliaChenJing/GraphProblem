@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+import javax.tools.StandardLocation;
+
 import lunch_submit.domain.Graph;
 import lunch_submit.domain.Node;
 import lunch_submit.service.GraphService;
@@ -31,7 +33,7 @@ public class IO {
 		// Input the graph:
 		System.out.println("Please input the sample input in the pdf:");
 		System.out.println("Map:");
-		while (!line.equals("Avoid:")) {
+		while (!line.equalsIgnoreCase("avoid") || !line.equalsIgnoreCase("avoid:")) {
 			line = in.nextLine();
 			saveMap(line);
 		}
@@ -40,22 +42,27 @@ public class IO {
 
 		System.out.println("\nPlease input the avoid location:");
 
-		while (!line.equals("Peggy:")) {
+		while (!line.equalsIgnoreCase("peggy") || !line.equalsIgnoreCase("peggy:")) {
 			line = in.nextLine();
 			saveAvoidLocation(line);
 		}
+
+		System.out.println("Avoid Location: " + samStartLocation);
+
 		System.out.println("Please input Peggy's start locations:");
-		while (!line.equals("Sam:")) {
+		while (!line.equalsIgnoreCase("sam") || !line.equalsIgnoreCase("sam:")) {
 			line = in.nextLine();
 			savePeggyLocation(line);
 
 		}
+		System.out.println("Peggy Start Location: " + samStartLocation);
 
 		System.out.println("Please input Sam's start locations(if finish, type 0)");
-		while (line != "0") {
+		while (!line.equalsIgnoreCase("end") || !line.equalsIgnoreCase("end:")) {
 			line = in.nextLine();
 			saveSamLocation(line);
 		}
+		System.out.println("Sam Start Location: " + samStartLocation);
 	}
 
 	private static void saveMap(String string) {
@@ -71,10 +78,10 @@ public class IO {
 			node1.getAdjacent().add(node2);
 			System.out.println("mapping saved : " + part1 + "-->" + part2);
 
-		} else if (string.equals("Avoid:"))
+		} else if (string.equalsIgnoreCase("avoid") || string.equalsIgnoreCase("avoid:"))
 			return;
 		else
-			System.out.println("please input a right format mapping, or input Avoid:(dont forget :");
+			System.out.println("please input a right format mapping, or input Avoid");
 
 	}
 
@@ -83,7 +90,7 @@ public class IO {
 
 		if (parts.length == 1) {
 			String part1 = parts[0];
-			if (string.equals("Peggy:"))
+			if (string.equalsIgnoreCase("peggy") || string.equalsIgnoreCase("peggy:"))
 				return;
 
 			Node node1 = new Node(part1);
@@ -93,17 +100,52 @@ public class IO {
 				System.out.println("avoid location saved : " + part1);
 			} else
 
-				System.out.println("please input a right format location, or input Peggy:   (dont forget :)");
+				System.out.println("this location is not in previous mapping, please input another location");
 		} else
-			System.out.println("please input a right format location, or input Peggy:   (dont forget :)");
+			System.out.println("please input a right format location, or input Peggy");
+
+	}
+
+	private static void savePeggyLocation(String string) {
+		String[] parts = string.split(" ");
+
+		if (parts.length == 1) {
+			String part1 = parts[0];
+			if (string.equalsIgnoreCase("sam") || string.equalsIgnoreCase("sam:"))
+				return;
+
+			Node node1 = new Node(part1);
+			Set<Node> graphNodes = graph.getNodes();
+			if (graphNodes.contains(node1)) {
+				peggyStartLocation.add(node1);
+				System.out.println("Peggy's location saved : " + part1);
+			} else
+
+				System.out.println("this location is not in previous mapping, please input another location");
+		} else
+			System.out.println("please input a right format location, or input Sam");
 
 	}
 
 	private static void saveSamLocation(String string) {
 
-	}
+		String[] parts = string.split(" ");
 
-	private static void savePeggyLocation(String string) {
+		if (parts.length == 1) {
+			String part1 = parts[0];
+			if (string.equalsIgnoreCase("end") || string.equalsIgnoreCase("end:"))
+				return;
+
+			Node node1 = new Node(part1);
+			Set<Node> graphNodes = graph.getNodes();
+			if (graphNodes.contains(node1)) {
+				samStartLocation.add(node1);
+				System.out.println("Sam's  location saved : " + part1);
+			} else
+
+				System.out.println("this location is not in previous mapping, please input another location");
+		} else
+			System.out.println("please input a right format location, or input End");
 
 	}
 
