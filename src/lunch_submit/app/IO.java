@@ -33,7 +33,7 @@ public class IO {
 		// Input the graph:
 		System.out.println("Please input the sample input in the pdf:");
 		System.out.println("Map:");
-		while (!line.equalsIgnoreCase("avoid") || !line.equalsIgnoreCase("avoid:")) {
+		while (!(line.equalsIgnoreCase("avoid") || line.equalsIgnoreCase("avoid:"))) {
 			line = in.nextLine();
 			saveMap(line);
 		}
@@ -42,23 +42,23 @@ public class IO {
 
 		System.out.println("\nPlease input the avoid location:");
 
-		while (!line.equalsIgnoreCase("peggy") || !line.equalsIgnoreCase("peggy:")) {
+		while (!(line.equalsIgnoreCase("peggy") || line.equalsIgnoreCase("peggy:"))) {
 			line = in.nextLine();
 			saveAvoidLocation(line);
 		}
 
-		System.out.println("Avoid Location: " + samStartLocation);
+		System.out.println("Avoid Location: " + avoidLocation);
 
 		System.out.println("Please input Peggy's start locations:");
-		while (!line.equalsIgnoreCase("sam") || !line.equalsIgnoreCase("sam:")) {
+		while (!(line.equalsIgnoreCase("sam") || line.equalsIgnoreCase("sam:"))) {
 			line = in.nextLine();
 			savePeggyLocation(line);
 
 		}
-		System.out.println("Peggy Start Location: " + samStartLocation);
+		System.out.println("Peggy Start Location: " + peggyStartLocation);
 
-		System.out.println("Please input Sam's start locations(if finish, type 0)");
-		while (!line.equalsIgnoreCase("end") || !line.equalsIgnoreCase("end:")) {
+		System.out.println("Please input Sam's start locations(if finish, type end)");
+		while (!(line.equalsIgnoreCase("end") || line.equalsIgnoreCase("end:"))) {
 			line = in.nextLine();
 			saveSamLocation(line);
 		}
@@ -66,7 +66,11 @@ public class IO {
 	}
 
 	private static void saveMap(String string) {
+
+		if (string.equalsIgnoreCase("avoid") || string.equalsIgnoreCase("avoid:"))
+			return;
 		String[] parts = string.split(" ");
+
 		if (parts.length == 2) {
 			String part1 = parts[0];
 			String part2 = parts[1];
@@ -78,20 +82,19 @@ public class IO {
 			node1.getAdjacent().add(node2);
 			System.out.println("mapping saved : " + part1 + "-->" + part2);
 
-		} else if (string.equalsIgnoreCase("avoid") || string.equalsIgnoreCase("avoid:"))
-			return;
-		else
+		} else
+
 			System.out.println("please input a right format mapping, or input Avoid");
 
 	}
 
 	private static void saveAvoidLocation(String string) {
-		String[] parts = string.split(" ");
 
+		if (string.equalsIgnoreCase("peggy") || string.equalsIgnoreCase("peggy:"))
+			return;
+		String[] parts = string.split(" ");
 		if (parts.length == 1) {
 			String part1 = parts[0];
-			if (string.equalsIgnoreCase("peggy") || string.equalsIgnoreCase("peggy:"))
-				return;
 
 			Node node1 = new Node(part1);
 			Set<Node> graphNodes = graph.getNodes();
@@ -107,12 +110,12 @@ public class IO {
 	}
 
 	private static void savePeggyLocation(String string) {
+		if (string.equalsIgnoreCase("sam") || string.equalsIgnoreCase("sam:"))
+			return;
 		String[] parts = string.split(" ");
 
 		if (parts.length == 1) {
 			String part1 = parts[0];
-			if (string.equalsIgnoreCase("sam") || string.equalsIgnoreCase("sam:"))
-				return;
 
 			Node node1 = new Node(part1);
 			Set<Node> graphNodes = graph.getNodes();
