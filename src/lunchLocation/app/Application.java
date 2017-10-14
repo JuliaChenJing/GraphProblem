@@ -1,9 +1,9 @@
 package lunchLocation.app;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+
 import lunchLocation.domain.*;
-import lunchLocation.service.GraphService;;
+import lunchLocation.service.GraphService;
+import lunchLocation.service.impl.GraphServiceImpl;
 
 public class Application {
 
@@ -44,12 +44,13 @@ public class Application {
 		
 
 		System.out.println(graph);
+		GraphService graphService=new GraphServiceImpl();
+		System.out.println(graphService.visitable(graph, a2, c2));
+		System.out.println(graphService.visitable(graph, a2, c3));
 		
-		System.out.println(GraphService.visitable(graph, a2, c2));
-		System.out.println(GraphService.visitable(graph, a2, c3));
-		
-		GraphService.findAllPaths(graph, a2, c2);
+		graphService.findAllPaths(graph, a2, c2);
 		System.out.println();
-		GraphService.findAllPaths(graph, a2, c3);
+		graphService.findAllPaths(graph, a2, c3);
+	
 	}
 }
