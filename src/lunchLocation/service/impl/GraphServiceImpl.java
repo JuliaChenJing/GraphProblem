@@ -176,7 +176,7 @@ public class GraphServiceImpl implements GraphService {
 				@SuppressWarnings("unchecked")
 				Stack<Node> tempPath = (Stack<Node>) path.clone();
 
-				pathList.add(tempPath);
+				pathListWitoutTrap.add(tempPath);
 			}
 
 		}
@@ -191,7 +191,21 @@ public class GraphServiceImpl implements GraphService {
 		// done exploring from v, so remove from path
 		path.pop();
 		onPath.remove(v);
-		return pathList;
+		return pathListWitoutTrap;
+	}
+
+
+	public Set<Node> lunchLocationWithoutTrap(Graph G, Node s, Node t, List<Node> nodes) {
+		List<Stack<Node>> pathForLunch = findAllPathsWithoutTrap(G, s, t,nodes);
+		System.out.println(pathForLunch);
+		
+		Set<Node> lunchLocation = new HashSet<Node>();
+		
+		for (Stack<Node> stack : pathForLunch) {
+			while (!stack.isEmpty())
+				lunchLocation.add((Node) stack.pop());
+		}
+		return lunchLocation;
 	}
 
 

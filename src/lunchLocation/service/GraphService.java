@@ -16,4 +16,5 @@ public interface GraphService {
 	public List<Stack<Node>> findAllPathsWithoutTrap(Graph G, Node s, Node t, List <Node> traps);
 	public Set<Node> lunchLocation(Graph G, Node s, Node t);
 	public Set<Node> lunchLocationWithoutException(Graph G, Node s,Node t, List <Node> nodes);
+	public Set<Node> lunchLocationWithoutTrap(Graph G, Node s,Node t, List <Node> nodes);
 }

@@ -101,6 +101,12 @@ public class Application {
 		System.out.println();
 		List<Stack<Node>> list4 = graphService.findAllPathsWithoutTrap(graph, a2, c3, traps);
 		System.out.println(list4);
+		
+		
+		System.out.println();
+		System.out.println("LUNCH LOCATION WITOUT TRAP: ");
+		System.out.println(graphService.lunchLocationWithoutTrap(graph, a2, c2, traps));
+		System.out.println(graphService.lunchLocationWithoutTrap(graph, a2, c3, traps));
 
 	}
 }
