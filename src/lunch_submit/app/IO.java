@@ -64,7 +64,7 @@ public class IO {
 
 		System.out.println(graph);
 		for (Node node : graph.getNodes()) {
-			System.out.println(node + "'s adjacent are :" + node.getAdjacent());
+			System.out.println(node + "'s adjacents are :" + node.getAdjacent());
 		}
 
 		System.out.println("\nPlease input the avoid location:");
@@ -104,6 +104,7 @@ public class IO {
 			Set<Node> graphNodes = graph.getNodes();
 			Node node1 = null;
 			Node node2 = null;
+			
 			if (graphService.getNodeByName(part1) == null) {
 				node1 = new Node(part1);
 				graphNodes.add(node1);
@@ -121,6 +122,7 @@ public class IO {
 
 			Set<Node> adjacent = node1.getAdjacent();
 			adjacent.add(node2);
+		
 
 			System.out.println("mapping saved : " + part1 + "-->" + part2);
 
