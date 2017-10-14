@@ -63,5 +63,6 @@ public class Application {
 		List<Stack<Node>> list2 = graphService.findAllPaths(graph, a2, c3);
 		System.out.println(list2);
 	
+	
 	}
 }

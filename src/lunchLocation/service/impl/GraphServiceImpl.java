@@ -49,9 +49,11 @@ public class GraphServiceImpl implements GraphService {
 	private static Set<Node> onPath = new HashSet<Node>(); // the set of
 															// vertices on the
 															// path
-	private static List<Stack<Node>> pathList = new ArrayList<Stack<Node>>();
+	private static List<Stack<Node>> pathList ;
 
 	public List<Stack<Node>> findAllPaths(Graph G, Node s, Node t) {
+		pathList = new ArrayList<Stack<Node>>();
+
 		return enumerate(G, s, t);
 
 	}
