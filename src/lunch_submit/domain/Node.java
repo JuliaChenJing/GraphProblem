@@ -71,7 +71,7 @@ public class Node {
 
 	@Override
 	public String toString() {
-		return "Node [name=" + name + ", adjacent=" + adjacent + "]";
+		return name;
 	}
 
 	public boolean equalsByName(String string) {
