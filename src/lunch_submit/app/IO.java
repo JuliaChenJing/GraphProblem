@@ -21,7 +21,7 @@ public class IO {
 	static Graph graph;
 
 	public static void main(String[] args) {
-	
+
 		graphService = new GraphServiceImpl();
 		graph = graphService.getGraph();
 		avoidLocation = new HashSet<Node>();
@@ -107,7 +107,6 @@ public class IO {
 			
 			Node node1;
 			if (graphService.getNodeByName(part1) == null) {
-				System.out.println("node "+ part1+" does not exist before, will create a new one");
 				node1 = new Node(part1);
 				graphNodes.add(node1);
 			}
@@ -117,26 +116,17 @@ public class IO {
 
 			Node node2;
 			if (graphService.getNodeByName(part2) == null) {
-				System.out.println("node "+ part2+" does not exist before, will create a new one");
+			
 				node2 = new Node(part2);
 				graphNodes.add(node2);
 
 			} else
 				node2 = graphService.getNodeByName(part2);
-			
-			
-			System.out.println("node1:"+node1);
-			System.out.println("node2:"+node2);
 			Set<Node> adjacent = node1.getAdjacent();
-			System.out.println("adjacent before :"+adjacent );
 			adjacent.add(node2);
-			System.out.println("adjacent after :"+adjacent );
 		
-
-			System.out.println("mapping saved : " + part1 + "-->" + part2);
-
-		} else
-			System.out.println("please input a right format mapping, or input Avoid");
+		}
+		
 	}
 
 	private static void saveAvoidLocation(String string) {
