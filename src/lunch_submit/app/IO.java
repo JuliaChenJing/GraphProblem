@@ -28,7 +28,7 @@ public class IO {
 		peggyStartLocation = new HashSet<Node>();
 		samStartLocation = new HashSet<Node>();
 		inputData();
-		
+
 		System.out.println("-------------------OUTPUT---------------------------------");
 		outputResult();
 	}
@@ -104,8 +104,7 @@ public class IO {
 			String part1 = parts[0];
 			String part2 = parts[1];
 			Set<Node> graphNodes = graph.getNodes();
-			System.out.println("previous nodes inside :"+graphNodes);
-			
+
 			Node node1;
 			if (graphService.getNodeByName(part1) == null) {
 				node1 = new Node(part1);
@@ -117,7 +116,7 @@ public class IO {
 
 			Node node2;
 			if (graphService.getNodeByName(part2) == null) {
-			
+
 				node2 = new Node(part2);
 				graphNodes.add(node2);
 
@@ -125,9 +124,11 @@ public class IO {
 				node2 = graphService.getNodeByName(part2);
 			Set<Node> adjacent = node1.getAdjacent();
 			adjacent.add(node2);
-		
-		}
-		
+			System.out.println("mapping saved : " + part1 + "-->" + part2);
+
+		} else
+			System.out.println("please input a right format mapping, or input Avoid");
+
 	}
 
 	private static void saveAvoidLocation(String string) {
@@ -137,11 +138,10 @@ public class IO {
 		String[] parts = string.split(" ");
 		if (parts.length == 1) {
 			String part1 = parts[0];
+			Node node = graphService.getNodeByName(part1);
 
-			Node node1 = new Node(part1);
-			Set<Node> graphNodes = graph.getNodes();
-			if (graphNodes.contains(node1)) {
-				avoidLocation.add(node1);
+			if (node != null) {
+				avoidLocation.add(node);
 				System.out.println("avoid location saved : " + part1);
 			} else
 
@@ -158,12 +158,12 @@ public class IO {
 
 		if (parts.length == 1) {
 			String part1 = parts[0];
+			Node node = graphService.getNodeByName(part1);
 
-			Node node1 = new Node(part1);
-			Set<Node> graphNodes = graph.getNodes();
-			if (graphNodes.contains(node1)) {
-				peggyStartLocation.add(node1);
-				System.out.println("Peggy's location saved : " + part1);
+			if (node != null) {
+				peggyStartLocation.add(node);
+				System.out.println("avoid location saved : " + part1);
+
 			} else
 				System.out.println("this location is not in previous mapping, please input another location");
 		} else
@@ -178,12 +178,12 @@ public class IO {
 
 		if (parts.length == 1) {
 			String part1 = parts[0];
+			Node node = graphService.getNodeByName(part1);
 
-			Node node1 = new Node(part1);
-			Set<Node> graphNodes = graph.getNodes();
-			if (graphNodes.contains(node1)) {
-				samStartLocation.add(node1);
-				System.out.println("Sam's  location saved : " + part1);
+			if (node != null) {
+				samStartLocation.add(node);
+				System.out.println("avoid location saved : " + part1);
+
 			} else
 				System.out.println("this location is not in previous mapping, please input another location");
 		} else
