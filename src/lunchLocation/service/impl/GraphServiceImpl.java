@@ -136,8 +136,8 @@ public class GraphServiceImpl implements GraphService {
 		return lunchLocation;
 	}
 
-	@Override
-	public Set<Node> lunchLocationWithoutException(Graph G, Node s, Node t, Node[] nodes) {
+
+	public Set<Node> lunchLocationWithoutException(Graph G, Node s, Node t, List <Node> nodes) {
 
 		Set<Node> lunchLocation = lunchLocation(G, s, t);
 		for (Node n : nodes)
@@ -193,5 +193,7 @@ public class GraphServiceImpl implements GraphService {
 		onPath.remove(v);
 		return pathList;
 	}
+
+
 
 }

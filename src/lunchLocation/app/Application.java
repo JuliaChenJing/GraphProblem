@@ -72,15 +72,16 @@ public class Application {
 		System.out.println(graphService.lunchLocation(graph, a2, c2));
 		System.out.println(graphService.lunchLocation(graph, a2, c3));
 		
-		Node[] exceptions= { b2 };
-		System.out.println();
-		System.out.println("LUNCH LOCATION WITOUT EXCEPTION: ");
-		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c2,exceptions));
-		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c3,exceptions));
-		
-		
 		List<Node> traps=new ArrayList<Node>();
 		traps.add(b2);
+	
+		System.out.println();
+		System.out.println("LUNCH LOCATION WITOUT EXCEPTION: ");
+		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c2,traps));
+		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c3,traps));
+		
+		
+		
 		System.out.println();
 		System.out.println("FIND ALL PATH Witout Trap: ");
 		
