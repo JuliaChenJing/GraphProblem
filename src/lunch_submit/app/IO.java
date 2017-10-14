@@ -15,14 +15,15 @@ public class IO {
 
 	public static Scanner in; // for standard input
 	static GraphService graphService;
-	static Graph graph;
 	static Set<Node> avoidLocation;
 	static Set<Node> peggyStartLocation;
 	static Set<Node> samStartLocation;
+	static Graph graph;
 
 	public static void main(String[] args) {
-		graph = new Graph();
+	
 		graphService = new GraphServiceImpl();
+		graph = graphService.getGraph();
 		avoidLocation = new HashSet<Node>();
 		peggyStartLocation = new HashSet<Node>();
 		samStartLocation = new HashSet<Node>();
@@ -104,7 +105,6 @@ public class IO {
 			Set<Node> graphNodes = graph.getNodes();
 			Node node1 = null;
 			Node node2 = null;
-			
 			if (graphService.getNodeByName(part1) == null) {
 				node1 = new Node(part1);
 				graphNodes.add(node1);
@@ -119,9 +119,14 @@ public class IO {
 
 			} else
 				node2 = graphService.getNodeByName(part2);
-
+			
+			
+			System.out.println("node1:"+node1);
+			System.out.println("node2:"+node2);
 			Set<Node> adjacent = node1.getAdjacent();
+			System.out.println("adjacent before :"+adjacent );
 			adjacent.add(node2);
+			System.out.println("adjacent after :"+adjacent );
 		
 
 			System.out.println("mapping saved : " + part1 + "-->" + part2);

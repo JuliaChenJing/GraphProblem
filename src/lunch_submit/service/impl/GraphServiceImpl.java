@@ -17,6 +17,14 @@ public class GraphServiceImpl implements GraphService {
 										// vertices on the
 										// path
 
+	public Graph getGraph() {
+		return graph;
+	}
+
+	public void setGraph(Graph graph) {
+		this.graph = graph;
+	}
+
 	public GraphServiceImpl() {
 		path = new Stack<Node>();
 		onPath = new HashSet<Node>();
