@@ -1,19 +1,21 @@
 package lunch_submit.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Node {
 
 	public Node(String name) {
 		this.name = name;
-		adjacent=new ArrayList<Node>();
+		adjacent=new HashSet<Node>();
 	}
 
 	private State state;
 	private String name;
 
-	List <Node> adjacent;
+	Set <Node> adjacent;
 
 	public State getState() {
 
@@ -34,11 +36,11 @@ public class Node {
 		this.name = name;
 	}
 
-	public List<Node>getAdjacent() {
+	public Set<Node>getAdjacent() {
 		return adjacent;
 	}
 
-	public void setAdjacent(List<Node> adjacent) {
+	public void setAdjacent(Set<Node> adjacent) {
 		this.adjacent = adjacent;
 	}
 

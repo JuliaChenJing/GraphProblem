@@ -1,14 +1,18 @@
 package lunch_submit.app;
 
 import java.util.Scanner;
+import java.util.Set;
 
+import lunch_submit.domain.Graph;
+import lunch_submit.domain.Node;
 import lunch_submit.service.GraphService;
 import lunch_submit.service.impl.GraphServiceImpl;
 
 public class IO {
 
 	public static Scanner in; // for standard input
-	GraphService graphService = new GraphServiceImpl();
+	static GraphService  graphService = new GraphServiceImpl();
+	static Graph graph=new Graph();
 
 	public static void main(String[] args) {
 		
@@ -50,8 +54,9 @@ public class IO {
 		String[] parts = string.split(" ");
 		String part1 = parts[0]; 
 		String part2 = parts[1];
-		//System.out.println(part1);
-		//System.out.println(part2);
+		Set<Node> graphNodes = graph.getNodes();
+		graph.getNodes().add(new Node(part1));
+		
 		
 		
 	}

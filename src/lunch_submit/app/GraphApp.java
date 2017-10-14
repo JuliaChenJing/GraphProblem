@@ -21,30 +21,30 @@ public class GraphApp {
 		Node c2 = new Node("c2");
 		Node c3 = new Node("c3");
 
-		List<Node> a1Adjacent = new ArrayList<Node>();
+		Set<Node> a1Adjacent = new HashSet<Node>();
 		a1Adjacent.add(b1);
 		a1.setAdjacent(a1Adjacent);
 
-		List<Node> a2Adjacent = new ArrayList<Node>();
+		Set<Node> a2Adjacent = new HashSet<Node>();
 		a2Adjacent.add(b1);
 		a2Adjacent.add(b2);
 		a2Adjacent.add(b3);
 		a2.setAdjacent(a2Adjacent);
 
-		List<Node> b1Adjacent = new ArrayList<Node>();
+		Set<Node> b1Adjacent = new HashSet<Node>();
 		b1Adjacent.add(c1);
 		b1.setAdjacent(b1Adjacent);
 
-		List<Node> b2Adjacent = new ArrayList<Node>();
+		Set<Node> b2Adjacent = new HashSet<Node>();
 		b2Adjacent.add(c2);
 		b2Adjacent.add(c3);
 		b2.setAdjacent(b2Adjacent);
 
-		List<Node> b3Adjacent = new ArrayList<Node>();
+		Set<Node> b3Adjacent = new HashSet<Node>();
 		b3Adjacent.add(c3);
 		b3.setAdjacent(b3Adjacent);
 
-		List<Node> noAdjacent = new ArrayList<Node>();
+		Set<Node> noAdjacent = new HashSet<Node>();
 
 		c1.setAdjacent(noAdjacent);
 		c2.setAdjacent(noAdjacent);
