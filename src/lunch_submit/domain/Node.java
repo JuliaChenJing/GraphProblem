@@ -82,4 +82,9 @@ public class Node {
 			return false;
 	}
 
+	
+	public static void main(String [] args){
+		Node a=new Node("a");
+		System.out.println(a.equalsByName("a"));
+	}
 }

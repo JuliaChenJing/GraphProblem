@@ -103,9 +103,11 @@ public class IO {
 			String part1 = parts[0];
 			String part2 = parts[1];
 			Set<Node> graphNodes = graph.getNodes();
-			Node node1 = null;
-			Node node2 = null;
+			System.out.println("previous nodes inside :"+graphNodes);
+			
+			Node node1;
 			if (graphService.getNodeByName(part1) == null) {
+				System.out.println("node "+ part1+" does not exist before, will create a new one");
 				node1 = new Node(part1);
 				graphNodes.add(node1);
 			}
@@ -113,7 +115,9 @@ public class IO {
 			else
 				node1 = graphService.getNodeByName(part1);
 
+			Node node2;
 			if (graphService.getNodeByName(part2) == null) {
+				System.out.println("node "+ part2+" does not exist before, will create a new one");
 				node2 = new Node(part2);
 				graphNodes.add(node2);
 

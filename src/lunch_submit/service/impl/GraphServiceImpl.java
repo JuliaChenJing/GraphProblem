@@ -106,10 +106,12 @@ public class GraphServiceImpl implements GraphService {
 	@Override
 	public Node getNodeByName(String string) {
 		Set<Node> nodes = graph.getNodes();
+		System.out.println("----getNodeByName"+nodes);
 		for(Node node:nodes){
 			if(node.equalsByName(string))
 				return node;
 		}
+		System.out.println("not match----------returning null");
 		return null;
 	}
 
