@@ -1,6 +1,7 @@
 package lunchLocation.app;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -71,11 +72,20 @@ public class Application {
 		System.out.println(graphService.lunchLocation(graph, a2, c2));
 		System.out.println(graphService.lunchLocation(graph, a2, c3));
 		
-		Node[] exception = { b2 };
+		Node[] exceptions= { b2 };
 		System.out.println();
 		System.out.println("LUNCH LOCATION WITOUT EXCEPTION: ");
-		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c2,exception));
-		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c3,exception));
+		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c2,exceptions));
+		System.out.println(graphService.lunchLocationWithoutException(graph, a2, c3,exceptions));
+		
+		
+		List<Node> traps=new ArrayList<Node>();
+		traps.add(b2);
+		System.out.println();
+		System.out.println("FIND ALL PATH Witout Trap: ");
+		
+		List<Stack<Node>> list3 = graphService.findAllPathsWithoutTrap(graph, a2, c2,traps);
+		System.out.println(list3);
 	    
 		
 	

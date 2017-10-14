@@ -146,4 +146,43 @@ public class GraphServiceImpl implements GraphService {
 
 	}
 
+	
+	private static List<Stack<Node>> pathListWitoutTrap;
+
+	public List<Stack<Node>> findAllPathsWithoutTrap(Graph G, Node s, Node t,List <Node> traps) {
+		pathListWitoutTrap = new ArrayList<Stack<Node>>();
+
+		return enumerateWitoutTrap(G, s, t,traps);
+	}
+
+	
+
+	// use DFS
+	private static List<Stack<Node>> enumerateWitoutTrap(Graph G, Node v, Node t,List <Node> traps) {
+
+		// add node v to current path from s
+		path.push(v);
+		onPath.add(v);
+
+		// found path from s to t - currently prints in reverse order because of
+		// stack
+		if (v.equals(t)) {
+			@SuppressWarnings("unchecked")
+			Stack<Node> tempPath = (Stack<Node>) path.clone();
+			pathList.add(tempPath);
+		}
+		// consider all neighbors that would continue path with repeating a node
+		else {
+			for (Node w : v.getAdjacent()) {
+				if (!onPath.contains(w))
+					enumerateWitoutTrap(G, w, t,traps);
+			}
+		}
+
+		// done exploring from v, so remove from path
+		path.pop();
+		onPath.remove(v);
+		return pathList;
+	}
+
 }
