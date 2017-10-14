@@ -5,11 +5,12 @@ import java.util.Set;
 
 public class Graph {
 	
+	Set <Node> nodes;
 	public Graph(){
 		nodes=new HashSet<Node>();
 	}
 
-	Set <Node> nodes;
+
 
 	public Set <Node> getNodes() {
 		return nodes;

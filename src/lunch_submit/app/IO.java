@@ -36,17 +36,18 @@ public class IO {
 		List<Set<Node>> nodes = new ArrayList<Set<Node>>();
 		for (Node peggyNode : peggyStartLocation)
 			for (Node samNode : samStartLocation) {
-				//System.out.println("Avoid Location: " + avoidLocation);
-				//System.out.println("Peggy: " + peggyStartLocation);
-				//System.out.println("Sam: " + samStartLocation);
-				System.out.println("peggy node adjacent: "+peggyNode.getAdjacent());
+				System.out.println("Avoid Location: " + avoidLocation);
+				System.out.println("Peggy: " + peggyStartLocation);
+				System.out.println("Sam: " + samStartLocation);
+
+				System.out.println("peggy node adjacent: " + peggyNode.getAdjacent());
 				Set<Node> set = graphService.lunchLocationWithoutTrap(graph, peggyNode, samNode, avoidLocation);
-				System.out.println("part of the result: "+set);
+				System.out.println("part of the result: " + set);
 				nodes.add(set);
 			}
 
 		Set<Node> result = graphService.combineLunchLocation(nodes);
-		System.out.println("sample output: "+result);
+		System.out.println("sample output: " + result);
 	}
 
 	private static void inputData() {
@@ -98,11 +99,25 @@ public class IO {
 			String part1 = parts[0];
 			String part2 = parts[1];
 			Set<Node> graphNodes = graph.getNodes();
-			Node node1 = new Node(part1);
-			graphNodes.add(node1);
-			Node node2 = new Node(part2);
-			graphNodes.add(node2);
-			node1.getAdjacent().add(node2);
+			Node node1 = null;
+			Node node2 = null;
+			if (graphService.getNodeByName(part1) == null) {
+				node1 = new Node(part1);
+				graphNodes.add(node1);
+			}
+			
+			else node1 = graphService.getNodeByName(part1);
+
+			if (graphService.getNodeByName(part2) == null) {
+				node2 = new Node(part2);
+				graphNodes.add(node2);
+
+			}
+			else node2 = graphService.getNodeByName(part2);
+		
+			Set<Node> adjacent = node1.getAdjacent();
+			adjacent.add(node2);
+
 			System.out.println("mapping saved : " + part1 + "-->" + part2);
 
 		} else

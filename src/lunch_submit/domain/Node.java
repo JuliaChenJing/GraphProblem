@@ -4,7 +4,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Node {
+	private State state;
+	private String name;
 
+	Set<Node> adjacent;
+
+	
+	public Node(String name) {
+		this.name = name;
+		adjacent = new HashSet<Node>();
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -30,15 +39,8 @@ public class Node {
 		return true;
 	}
 
-	public Node(String name) {
-		this.name = name;
-		adjacent=new HashSet<Node>();
-	}
 
-	private State state;
-	private String name;
 
-	Set <Node> adjacent;
 
 	public State getState() {
 
@@ -59,7 +61,7 @@ public class Node {
 		this.name = name;
 	}
 
-	public Set<Node>getAdjacent() {
+	public Set<Node> getAdjacent() {
 		return adjacent;
 	}
 
@@ -69,7 +71,15 @@ public class Node {
 
 	@Override
 	public String toString() {
-		return  name;
+		return "Node [name=" + name + ", adjacent=" + adjacent + "]";
+	}
+
+	public boolean equalsByName(String string) {
+
+		if (name == string)
+			return true;
+		else
+			return false;
 	}
 
 }

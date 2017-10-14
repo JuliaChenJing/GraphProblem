@@ -10,14 +10,22 @@ import lunch_submit.service.GraphService;
 
 public class GraphServiceImpl implements GraphService {
 
-	private static Stack<Node> path = new Stack<Node>(); // the current path
-	private static Set<Node> onPath = new HashSet<Node>(); // the set of
-															// vertices on the
-															// path
+	Graph graph;
+
+	private static Stack<Node> path; // the current path
+	private static Set<Node> onPath; // the set of
+										// vertices on the
+										// path
+
+	public GraphServiceImpl() {
+		path = new Stack<Node>();
+		onPath = new HashSet<Node>();
+		graph = new Graph();
+	}
 
 	private static List<Stack<Node>> pathListWitoutTrap;
 
-	public List<Stack<Node>> findAllPathsWithoutTrap(Graph G, Node s, Node t,Set<Node> traps) {
+	public List<Stack<Node>> findAllPathsWithoutTrap(Graph G, Node s, Node t, Set<Node> traps) {
 		pathListWitoutTrap = new ArrayList<Stack<Node>>();
 
 		return enumerateWitoutTrap(G, s, t, traps);
@@ -85,6 +93,16 @@ public class GraphServiceImpl implements GraphService {
 				lunchLocation.addAll(list);
 		}
 		return lunchLocation;
+	}
+
+	@Override
+	public Node getNodeByName(String string) {
+		Set<Node> nodes = graph.getNodes();
+		for(Node node:nodes){
+			if(node.equalsByName(string))
+				return node;
+		}
+		return null;
 	}
 
 }
