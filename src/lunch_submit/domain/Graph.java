@@ -1,8 +1,13 @@
 package lunch_submit.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Graph {
+	
+	public Graph(){
+		nodes=new HashSet<Node>();
+	}
 
 	Set <Node> nodes;
 
