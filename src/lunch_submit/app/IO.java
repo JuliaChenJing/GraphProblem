@@ -28,7 +28,8 @@ public class IO {
 		peggyStartLocation = new HashSet<Node>();
 		samStartLocation = new HashSet<Node>();
 		inputData();
-
+		
+		System.out.println("-------------------OUTPUT---------------------------------");
 		outputResult();
 	}
 
