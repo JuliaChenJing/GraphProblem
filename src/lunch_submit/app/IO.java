@@ -27,22 +27,22 @@ public class IO {
 		peggyStartLocation = new HashSet<Node>();
 		samStartLocation = new HashSet<Node>();
 		inputData();
-		
+
 		outputResult();
 	}
 
 	private static void outputResult() {
-	     
-		 List<Set<Node>> nodes = new ArrayList <Set<Node>>();
-		 for(Node peggyNode :peggyStartLocation)
-			 for(Node samNode: samStartLocation){
-				 Set<Node> set = graphService.lunchLocationWithoutTrap(graph, peggyNode, samNode, avoidLocation);
-				 
-				 nodes.add(set);
-			 }
-		
-		 Set<Node> result = graphService.combineLunchLocation(nodes);
-		 System.out.println(result);
+
+		List<Set<Node>> nodes = new ArrayList<Set<Node>>();
+		for (Node peggyNode : peggyStartLocation)
+			for (Node samNode : samStartLocation) {
+				Set<Node> set = graphService.lunchLocationWithoutTrap(graph, peggyNode, samNode, avoidLocation);
+
+				nodes.add(set);
+			}
+
+		Set<Node> result = graphService.combineLunchLocation(nodes);
+		System.out.println(result);
 	}
 
 	private static void inputData() {
@@ -146,13 +146,13 @@ public class IO {
 	}
 
 	private static void saveSamLocation(String string) {
+		if (string.equalsIgnoreCase("end") || string.equalsIgnoreCase("end:"))
+			return;
 
 		String[] parts = string.split(" ");
 
 		if (parts.length == 1) {
 			String part1 = parts[0];
-			if (string.equalsIgnoreCase("end") || string.equalsIgnoreCase("end:"))
-				return;
 
 			Node node1 = new Node(part1);
 			Set<Node> graphNodes = graph.getNodes();
