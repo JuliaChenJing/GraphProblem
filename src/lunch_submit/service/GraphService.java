@@ -10,4 +10,6 @@ public interface GraphService {
 	
 
 	public Set<Node> lunchLocationWithoutTrap(Graph G, Node s,Node t, List <Node> nodes);
+	public Set<Node> combineLunchLocation(List<Set <Node>> nodes);
+	
 }

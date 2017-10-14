@@ -1,7 +1,9 @@
 package lunch_submit.app;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 import lunch_submit.domain.*;
 import lunch_submit.service.*;
@@ -63,21 +65,36 @@ public class GraphApp {
 		System.out.println(graph);
 		GraphService graphService = new GraphServiceImpl();
 
-
-
 		List<Node> traps = new ArrayList<Node>();
 		traps.add(b2);
 
-
-		
-		
 		System.out.println();
 		System.out.println("LUNCH LOCATION WITOUT TRAP: ");
-		System.out.println(graphService.lunchLocationWithoutTrap(graph, a2, c2, traps));
-		System.out.println(graphService.lunchLocationWithoutTrap(graph, a2, c3, traps));
+		Set<Node> list1 = graphService.lunchLocationWithoutTrap(graph, a2, c2, traps);
+		System.out.println(list1);
+		Set<Node> list2 = graphService.lunchLocationWithoutTrap(graph, a2, c3, traps);
+		System.out.println(list2);
+		
+		Set <String> set=new HashSet <String>();
+		set.add("hello");
+		set.add("julia");
+		System.out.println("??"+set.size());
+	
+	
+		
+		List<Set<Node>> lunchLocationBeforeCombining = new ArrayList<Set<Node>>();
+		
+		lunchLocationBeforeCombining.add(list1);
+		lunchLocationBeforeCombining.add(list2);
+		
+		Set<Node> lunchLocation = graphService.combineLunchLocation(lunchLocationBeforeCombining);
+		
+		System.out.println(lunchLocation);
+		
+	
 		
 		
-
+		
 
 	}
 }

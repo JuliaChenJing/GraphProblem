@@ -9,15 +9,12 @@ import java.util.Stack;
 import lunch_submit.domain.*;
 import lunch_submit.service.GraphService;
 
-
 public class GraphServiceImpl implements GraphService {
 
-	
 	private static Stack<Node> path = new Stack<Node>(); // the current path
 	private static Set<Node> onPath = new HashSet<Node>(); // the set of
 															// vertices on the
 															// path
-
 
 	private static List<Stack<Node>> pathListWitoutTrap;
 
@@ -67,12 +64,11 @@ public class GraphServiceImpl implements GraphService {
 		return pathListWitoutTrap;
 	}
 
-
 	public Set<Node> lunchLocationWithoutTrap(Graph G, Node s, Node t, List<Node> nodes) {
-		List<Stack<Node>> pathForLunch = findAllPathsWithoutTrap(G, s, t,nodes);
-		
+		List<Stack<Node>> pathForLunch = findAllPathsWithoutTrap(G, s, t, nodes);
+
 		Set<Node> lunchLocation = new HashSet<Node>();
-		
+
 		for (Stack<Node> stack : pathForLunch) {
 			while (!stack.isEmpty())
 				lunchLocation.add((Node) stack.pop());
@@ -80,6 +76,17 @@ public class GraphServiceImpl implements GraphService {
 		return lunchLocation;
 	}
 
-
+	@Override
+	public Set<Node> combineLunchLocation(List<Set<Node>> nodes) {
+	
+	
+		Set<Node> lunchLocation = new HashSet<Node>();
+	
+		for (Set<Node> list : nodes) {
+			if (!list.isEmpty())
+				lunchLocation.addAll(list);
+		}
+		return lunchLocation;
+	}
 
 }
