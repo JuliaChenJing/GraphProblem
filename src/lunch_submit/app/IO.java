@@ -36,13 +36,17 @@ public class IO {
 		List<Set<Node>> nodes = new ArrayList<Set<Node>>();
 		for (Node peggyNode : peggyStartLocation)
 			for (Node samNode : samStartLocation) {
+				//System.out.println("Avoid Location: " + avoidLocation);
+				//System.out.println("Peggy: " + peggyStartLocation);
+				//System.out.println("Sam: " + samStartLocation);
+				System.out.println("peggy node adjacent: "+peggyNode.getAdjacent());
 				Set<Node> set = graphService.lunchLocationWithoutTrap(graph, peggyNode, samNode, avoidLocation);
-
+				System.out.println("part of the result: "+set);
 				nodes.add(set);
 			}
 
 		Set<Node> result = graphService.combineLunchLocation(nodes);
-		System.out.println(result);
+		System.out.println("sample output: "+result);
 	}
 
 	private static void inputData() {
