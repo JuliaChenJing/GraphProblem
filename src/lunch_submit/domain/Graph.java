@@ -1,16 +1,16 @@
 package lunch_submit.domain;
 
-import java.util.List;
+import java.util.Set;
 
 public class Graph {
 
-	List<Node> nodes;
+	Set <Node> nodes;
 
-	public List<Node> getNodes() {
+	public Set <Node> getNodes() {
 		return nodes;
 	}
 
-	public void setNodes(List<Node> nodes2) {
+	public void setNodes(Set<Node> nodes2) {
 		this.nodes = nodes2;
 	}
 

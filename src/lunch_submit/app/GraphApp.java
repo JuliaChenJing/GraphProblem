@@ -50,7 +50,7 @@ public class GraphApp {
 		c2.setAdjacent(noAdjacent);
 		c3.setAdjacent(noAdjacent);
 
-		List<Node> nodes = new ArrayList<Node>();
+		Set<Node> nodes = new HashSet<Node>();
 		nodes.add(a1);
 		nodes.add(a2);
 		nodes.add(b1);
