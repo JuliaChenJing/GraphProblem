@@ -1,12 +1,11 @@
-package lunchLocation.app;
+package lunch_submit.app;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-import lunchLocation.domain.*;
-import lunchLocation.service.GraphService;
-import lunchLocation.service.impl.GraphServiceImpl;
+import lunch_submit.domain.*;
+import lunch_submit.service.*;
+import lunch_submit.service.impl.GraphServiceImpl;
 
 public class GraphApp {
 

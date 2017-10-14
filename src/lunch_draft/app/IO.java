@@ -1,4 +1,4 @@
-package lunchLocation.app;
+package lunch_draft.app;
 
 import java.util.Scanner;
 

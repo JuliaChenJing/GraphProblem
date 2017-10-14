@@ -1,4 +1,4 @@
-package lunchLocation.domain;
+package lunch_draft.domain;
 
 import java.util.ArrayList;
 import java.util.List;

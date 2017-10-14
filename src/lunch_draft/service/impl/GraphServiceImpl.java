@@ -1,4 +1,4 @@
-package lunchLocation.service.impl;
+package lunch_draft.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -6,8 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.Stack;
-import lunchLocation.domain.*;
-import lunchLocation.service.GraphService;
+import lunch_draft.domain.*;
+import lunch_draft.service.GraphService;
 
 public class GraphServiceImpl implements GraphService {
 
