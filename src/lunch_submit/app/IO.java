@@ -21,12 +21,13 @@ public class IO {
 	static Graph graph;
 
 	public static void main(String[] args) {
-
 		graphService = new GraphServiceImpl();
 		graph = graphService.getGraph();
 		avoidLocation = new HashSet<Node>();
 		peggyStartLocation = new HashSet<Node>();
 		samStartLocation = new HashSet<Node>();
+		
+		System.out.println("-------------------INPUT---------------------------------");
 		inputData();
 
 		System.out.println("-------------------OUTPUT---------------------------------");
@@ -38,18 +39,12 @@ public class IO {
 		List<Set<Node>> nodes = new ArrayList<Set<Node>>();
 		for (Node peggyNode : peggyStartLocation)
 			for (Node samNode : samStartLocation) {
-				System.out.println("Avoid Location: " + avoidLocation);
-				System.out.println("Peggy: " + peggyStartLocation);
-				System.out.println("Sam: " + samStartLocation);
-
-				System.out.println("peggy node adjacent: " + peggyNode.getAdjacent());
 				Set<Node> set = graphService.lunchLocationWithoutTrap(graph, peggyNode, samNode, avoidLocation);
-				System.out.println("part of the result: " + set);
 				nodes.add(set);
 			}
 
 		Set<Node> result = graphService.combineLunchLocation(nodes);
-		System.out.println("sample output: " + result);
+		System.out.println("OUTPUT: " + result);
 	}
 
 	private static void inputData() {
