@@ -8,7 +8,7 @@ import lunchLocation.domain.*;
 import lunchLocation.service.GraphService;
 import lunchLocation.service.impl.GraphServiceImpl;
 
-public class Application {
+public class GraphApp {
 
 	public static void main(String[] args) {
 		Node a1 = new Node("a1");
@@ -107,6 +107,9 @@ public class Application {
 		System.out.println("LUNCH LOCATION WITOUT TRAP: ");
 		System.out.println(graphService.lunchLocationWithoutTrap(graph, a2, c2, traps));
 		System.out.println(graphService.lunchLocationWithoutTrap(graph, a2, c3, traps));
+		
+		
+
 
 	}
 }

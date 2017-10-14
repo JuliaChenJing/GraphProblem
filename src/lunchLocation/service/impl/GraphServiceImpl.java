@@ -197,7 +197,6 @@ public class GraphServiceImpl implements GraphService {
 
 	public Set<Node> lunchLocationWithoutTrap(Graph G, Node s, Node t, List<Node> nodes) {
 		List<Stack<Node>> pathForLunch = findAllPathsWithoutTrap(G, s, t,nodes);
-		System.out.println(pathForLunch);
 		
 		Set<Node> lunchLocation = new HashSet<Node>();
 		
