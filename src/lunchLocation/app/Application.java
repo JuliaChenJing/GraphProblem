@@ -1,6 +1,9 @@
 package lunchLocation.app;
 
 
+import java.util.List;
+import java.util.Stack;
+
 import lunchLocation.domain.*;
 import lunchLocation.service.GraphService;
 import lunchLocation.service.impl.GraphServiceImpl;
@@ -48,9 +51,16 @@ public class Application {
 		System.out.println(graphService.visitable(graph, a2, c2));
 		System.out.println(graphService.visitable(graph, a2, c3));
 		
-		graphService.findAllPaths(graph, a2, c2);
+		graphService.printAllPaths(graph, a2, c2);
 		System.out.println();
-		graphService.findAllPaths(graph, a2, c3);
+		graphService.printAllPaths(graph, a2, c3);
+		
+		
+		List<Stack<Node>> list1 = graphService.findAllPaths(graph, a2, c2);
+		System.out.println(list1);
+		System.out.println();
+		List<Stack<Node>> list2 = graphService.findAllPaths(graph, a2, c3);
+		System.out.println(list2);
 	
 	}
 }
