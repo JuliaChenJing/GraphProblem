@@ -55,6 +55,7 @@ public class Application {
 		System.out.println();
 		graphService.printAllPaths(graph, a2, c3);
 		
+		System.out.println();
 		
 		List<Stack<Node>> list1 = graphService.findAllPaths(graph, a2, c2);
 		System.out.println(list1);

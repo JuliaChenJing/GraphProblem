@@ -1,4 +1,5 @@
 package lunchLocation.service.impl;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -8,14 +9,11 @@ import java.util.Stack;
 import lunchLocation.domain.*;
 import lunchLocation.service.GraphService;
 
-
-
-public class GraphServiceImpl implements GraphService{
+public class GraphServiceImpl implements GraphService {
 
 	public boolean visitable(Graph graph, Node from, Node to) {
 
-		LinkedList<Node> returnlist = new LinkedList<Node>(); 
-																
+		LinkedList<Node> returnlist = new LinkedList<Node>();
 
 		// set all nodes in graph Unvisited
 		for (Node u : graph.getNodes()) {
@@ -46,70 +44,81 @@ public class GraphServiceImpl implements GraphService{
 		}
 		return false;
 	}
-	
-	
-    private static Stack<Node>  path  = new Stack<Node>();   // the current path
-    private static Set<Node>  onPath  = new HashSet<Node>();     // the set of vertices on the path
-    static List <Stack<Node>>  pathList=new ArrayList<Stack<Node>>();
 
-    public  List <Stack<Node>> findAllPaths(Graph G, Node s, Node t) {
-       return  enumerate(G, s, t);
-      
-    }
+	private static Stack<Node> path = new Stack<Node>(); // the current path
+	private static Set<Node> onPath = new HashSet<Node>(); // the set of
+															// vertices on the
+															// path
+	private static List<Stack<Node>> pathList = new ArrayList<Stack<Node>>();
 
-    // use DFS
-    private static  List <Stack<Node>> enumerate(Graph G,Node v, Node t) {
+	public List<Stack<Node>> findAllPaths(Graph G, Node s, Node t) {
+		return enumerate(G, s, t);
 
-        // add node v to current path from s
-        path.push(v);
-        onPath.add(v);
+	}
 
-        // found path from s to t - currently prints in reverse order because of stack
-        if (v.equals(t)) 
-           pathList.add(path);
+	// use DFS
+	private static List<Stack<Node>> enumerate(Graph G, Node v, Node t) {
 
-        // consider all neighbors that would continue path with repeating a node
-        else {
-            for (Node w : v.getAdjacent()) {
-                if (!onPath.contains(w)) enumerate(G, w, t);
-            }
-        }
+		// add node v to current path from s
+		path.push(v);
+		onPath.add(v);
 
-        // done exploring from v, so remove from path
-        path.pop();
-        onPath.remove(v);
-        return pathList;
-    }
-    
-    
-    private static Stack<Node>  pathForPrint  = new Stack<Node>();   // the current path
-    private static Set<Node>  onPathForPrint  = new HashSet<Node>();     // the set of vertices on the path
-    public  void  printAllPaths(Graph G, Node s, Node t) {
-        enumerateHelper(G, s, t);
-    }
+		// found path from s to t - currently prints in reverse order because of
+		// stack
+		if (v.equals(t)) {
+			@SuppressWarnings("unchecked")
+			Stack<Node> tempPath = (Stack<Node>) path.clone();
+			pathList.add(tempPath);
+		}
+		// consider all neighbors that would continue path with repeating a node
+		else {
+			for (Node w : v.getAdjacent()) {
+				if (!onPath.contains(w))
+					enumerate(G, w, t);
+			}
+		}
 
-    // use DFS
-    private static void enumerateHelper(Graph G,Node v, Node t) {
+		// done exploring from v, so remove from path
+		path.pop();
+		onPath.remove(v);
+		return pathList;
+	}
 
-        // add node v to current pathForPrint from s
-        pathForPrint.push(v);
-        onPathForPrint.add(v);
+	private static Stack<Node> pathForPrint = new Stack<Node>(); // the current
+																	// path
+	private static Set<Node> onPathForPrint = new HashSet<Node>(); // the set of
+																	// vertices
+																	// on the
+																	// path
 
-        // found pathForPrint from s to t - currently prints in reverse order because of stack
-        if (v.equals(t)) 
-            System.out.println(pathForPrint);
+	public void printAllPaths(Graph G, Node s, Node t) {
+		enumerateHelper(G, s, t);
+	}
 
-        // consider all neighbors that would continue pathForPrint with repeating a node
-        else {
-            for (Node w : v.getAdjacent()) {
-                if (!onPathForPrint.contains(w)) enumerateHelper(G, w, t);
-            }
-        }
+	// use DFS
+	private static void enumerateHelper(Graph G, Node v, Node t) {
 
-        // done exploring from v, so remove from pathForPrint
-        pathForPrint.pop();
-        onPathForPrint.remove(v);
-    }
+		// add node v to current pathForPrint from s
+		pathForPrint.push(v);
+		onPathForPrint.add(v);
 
+		// found pathForPrint from s to t - currently prints in reverse order
+		// because of stack
+		if (v.equals(t))
+			System.out.println(pathForPrint);
+
+		// consider all neighbors that would continue pathForPrint with
+		// repeating a node
+		else {
+			for (Node w : v.getAdjacent()) {
+				if (!onPathForPrint.contains(w))
+					enumerateHelper(G, w, t);
+			}
+		}
+
+		// done exploring from v, so remove from pathForPrint
+		pathForPrint.pop();
+		onPathForPrint.remove(v);
+	}
 
 }
