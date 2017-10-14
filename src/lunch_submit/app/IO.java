@@ -13,7 +13,7 @@ import lunch_submit.service.impl.GraphServiceImpl;
 
 public class IO {
 
-	public static Scanner in; // for standard input
+	public static Scanner in; 
 	static GraphService graphService;
 	static Set<Node> avoidLocation;
 	static Set<Node> peggyStartLocation;
@@ -45,7 +45,9 @@ public class IO {
 			}
 
 		Set<Node> result = graphService.combineLunchLocation(nodes);
-		System.out.println("OUTPUT: " + result);
+		//System.out.println("OUTPUT: " + result);
+		for(Node node:result)
+			System.out.println(node);
 	}
 
 	private static void inputData() {
