@@ -76,7 +76,7 @@ public class Node {
 
 	public boolean equalsByName(String string) {
 
-		if (name == string)
+		if (name .equals(string) )
 			return true;
 		else
 			return false;

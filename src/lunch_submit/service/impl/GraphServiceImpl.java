@@ -21,9 +21,6 @@ public class GraphServiceImpl implements GraphService {
 		return graph;
 	}
 
-	public void setGraph(Graph graph) {
-		this.graph = graph;
-	}
 
 	public GraphServiceImpl() {
 		path = new Stack<Node>();
@@ -106,8 +103,11 @@ public class GraphServiceImpl implements GraphService {
 	@Override
 	public Node getNodeByName(String string) {
 		Set<Node> nodes = graph.getNodes();
-		System.out.println("----getNodeByName"+nodes);
+		System.out.println("----getNodeByName :"+nodes);
 		for(Node node:nodes){
+			System.out.println("--------in for loop  node:  "+node);
+			System.out.println("--------in for loop  string: "+string);
+			System.out.println("(node.equalsByName(string)"+node.equalsByName(string));
 			if(node.equalsByName(string))
 				return node;
 		}
