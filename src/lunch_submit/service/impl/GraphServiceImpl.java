@@ -78,10 +78,9 @@ public class GraphServiceImpl implements GraphService {
 
 	@Override
 	public Set<Node> combineLunchLocation(List<Set<Node>> nodes) {
-	
-	
+
 		Set<Node> lunchLocation = new HashSet<Node>();
-	
+
 		for (Set<Node> list : nodes) {
 			if (!list.isEmpty())
 				lunchLocation.addAll(list);

@@ -74,14 +74,10 @@ public class GraphApp {
 		System.out.println(list1);
 		Set<Node> list2 = graphService.lunchLocationWithoutTrap(graph, a2, c3, traps);
 		System.out.println(list2);
+
 		
-		Set <String> set=new HashSet <String>();
-		set.add("hello");
-		set.add("julia");
-		System.out.println("??"+set.size());
-	
-	
 		
+		System.out.println("COMBINE LUNCH LOCATION WITOUT TRAP: ");
 		List<Set<Node>> lunchLocationBeforeCombining = new ArrayList<Set<Node>>();
 		
 		lunchLocationBeforeCombining.add(list1);
@@ -90,11 +86,5 @@ public class GraphApp {
 		Set<Node> lunchLocation = graphService.combineLunchLocation(lunchLocationBeforeCombining);
 		
 		System.out.println(lunchLocation);
-		
-	
-		
-		
-		
-
 	}
 }
