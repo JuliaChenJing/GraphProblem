@@ -1,15 +1,19 @@
 package lunchLocation.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Node {
 
 	public Node(String name) {
 		this.name = name;
+		adjacent=new ArrayList<Node>();
 	}
 
 	private State state;
 	private String name;
 
-	Node[] adjacent;
+	List <Node> adjacent;
 
 	public State getState() {
 
@@ -30,11 +34,11 @@ public class Node {
 		this.name = name;
 	}
 
-	public Node[] getAdjacent() {
+	public List<Node>getAdjacent() {
 		return adjacent;
 	}
 
-	public void setAdjacent(Node[] adjacent) {
+	public void setAdjacent(List<Node> adjacent) {
 		this.adjacent = adjacent;
 	}
 

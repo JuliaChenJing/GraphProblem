@@ -1,23 +1,25 @@
 package lunchLocation.domain;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Graph {
 
-	Node[] nodes;
+	List<Node> nodes;
 
-	public Node[] getNodes() {
+	public List<Node> getNodes() {
 		return nodes;
 	}
 
-	public void setNodes(Node[] nodes) {
-		this.nodes = nodes;
+	public void setNodes(List<Node> nodes2) {
+		this.nodes = nodes2;
 	}
 
 	@Override
 	public String toString() {
-		return "Graph [nodes=" + Arrays.toString(nodes) + "]";
+		return "Graph [nodes=" + nodes + "]";
 	}
+
 
 	
 
