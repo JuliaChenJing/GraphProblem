@@ -2,7 +2,6 @@ package lunch_submit.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.Stack;
@@ -18,14 +17,14 @@ public class GraphServiceImpl implements GraphService {
 
 	private static List<Stack<Node>> pathListWitoutTrap;
 
-	public List<Stack<Node>> findAllPathsWithoutTrap(Graph G, Node s, Node t, List<Node> traps) {
+	public List<Stack<Node>> findAllPathsWithoutTrap(Graph G, Node s, Node t,Set<Node> traps) {
 		pathListWitoutTrap = new ArrayList<Stack<Node>>();
 
 		return enumerateWitoutTrap(G, s, t, traps);
 	}
 
 	// use DFS
-	private static List<Stack<Node>> enumerateWitoutTrap(Graph G, Node v, Node t, List<Node> traps) {
+	private static List<Stack<Node>> enumerateWitoutTrap(Graph G, Node v, Node t, Set<Node> traps) {
 
 		// add node v to current path from s
 		path.push(v);
@@ -64,7 +63,7 @@ public class GraphServiceImpl implements GraphService {
 		return pathListWitoutTrap;
 	}
 
-	public Set<Node> lunchLocationWithoutTrap(Graph G, Node s, Node t, List<Node> nodes) {
+	public Set<Node> lunchLocationWithoutTrap(Graph G, Node s, Node t, Set<Node> nodes) {
 		List<Stack<Node>> pathForLunch = findAllPathsWithoutTrap(G, s, t, nodes);
 
 		Set<Node> lunchLocation = new HashSet<Node>();

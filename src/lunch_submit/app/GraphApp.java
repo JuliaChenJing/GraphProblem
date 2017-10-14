@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.Stack;
 import lunch_submit.domain.*;
 import lunch_submit.service.*;
 import lunch_submit.service.impl.GraphServiceImpl;
@@ -65,12 +64,12 @@ public class GraphApp {
 		System.out.println(graph);
 		GraphService graphService = new GraphServiceImpl();
 
-		List<Node> traps = new ArrayList<Node>();
+		Set<Node> traps = new HashSet<Node>();
 		traps.add(b2);
 
 		System.out.println();
 		System.out.println("LUNCH LOCATION WITOUT TRAP: ");
-		Set<Node> list1 = graphService.lunchLocationWithoutTrap(graph, a2, c2, traps);
+		Set<Node> list1 = graphService.lunchLocationWithoutTrap(graph, a2, c2,  traps);
 		System.out.println(list1);
 		Set<Node> list2 = graphService.lunchLocationWithoutTrap(graph, a2, c3, traps);
 		System.out.println(list2);

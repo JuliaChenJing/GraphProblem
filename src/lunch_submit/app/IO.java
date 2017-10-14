@@ -1,10 +1,10 @@
 package lunch_submit.app;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-
-import javax.tools.StandardLocation;
 
 import lunch_submit.domain.Graph;
 import lunch_submit.domain.Node;
@@ -27,6 +27,22 @@ public class IO {
 		peggyStartLocation = new HashSet<Node>();
 		samStartLocation = new HashSet<Node>();
 		inputData();
+		
+		outputResult();
+	}
+
+	private static void outputResult() {
+	     
+		 List<Set<Node>> nodes = new ArrayList <Set<Node>>();
+		 for(Node peggyNode :peggyStartLocation)
+			 for(Node samNode: samStartLocation){
+				 Set<Node> set = graphService.lunchLocationWithoutTrap(graph, peggyNode, samNode, avoidLocation);
+				 
+				 nodes.add(set);
+			 }
+		
+		 Set<Node> result = graphService.combineLunchLocation(nodes);
+		 System.out.println(result);
 	}
 
 	private static void inputData() {
