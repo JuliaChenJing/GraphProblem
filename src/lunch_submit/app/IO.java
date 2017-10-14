@@ -26,7 +26,7 @@ public class IO {
 		avoidLocation = new HashSet<Node>();
 		peggyStartLocation = new HashSet<Node>();
 		samStartLocation = new HashSet<Node>();
-		
+
 		System.out.println("-------------------INPUT---------------------------------");
 		inputData();
 
@@ -39,6 +39,7 @@ public class IO {
 		List<Set<Node>> nodes = new ArrayList<Set<Node>>();
 		for (Node peggyNode : peggyStartLocation)
 			for (Node samNode : samStartLocation) {
+
 				Set<Node> set = graphService.lunchLocationWithoutTrap(graph, peggyNode, samNode, avoidLocation);
 				nodes.add(set);
 			}
@@ -131,18 +132,17 @@ public class IO {
 		if (string.equalsIgnoreCase("peggy") || string.equalsIgnoreCase("peggy:"))
 			return;
 		String[] parts = string.split(" ");
-		if (parts.length == 1) {
-			String part1 = parts[0];
-			Node node = graphService.getNodeByName(part1);
+		for (String part : parts) {
+
+			Node node = graphService.getNodeByName(part);
 
 			if (node != null) {
 				avoidLocation.add(node);
-				System.out.println("avoid location saved : " + part1);
+				System.out.println("avoid location saved : " + part);
 			} else
 
 				System.out.println("this location is not in previous mapping, please input another location");
-		} else
-			System.out.println("please input a right format location, or input Peggy");
+		}
 
 	}
 
@@ -151,18 +151,17 @@ public class IO {
 			return;
 		String[] parts = string.split(" ");
 
-		if (parts.length == 1) {
-			String part1 = parts[0];
-			Node node = graphService.getNodeByName(part1);
+		for (String part : parts) {
+
+			Node node = graphService.getNodeByName(part);
 
 			if (node != null) {
 				peggyStartLocation.add(node);
-				System.out.println("avoid location saved : " + part1);
+				System.out.println("avoid location saved : " + part);
 
 			} else
 				System.out.println("this location is not in previous mapping, please input another location");
-		} else
-			System.out.println("please input a right format location, or input Sam");
+		}
 	}
 
 	private static void saveSamLocation(String string) {
@@ -171,17 +170,16 @@ public class IO {
 
 		String[] parts = string.split(" ");
 
-		if (parts.length == 1) {
-			String part1 = parts[0];
-			Node node = graphService.getNodeByName(part1);
+		for (String part : parts) {
+
+			Node node = graphService.getNodeByName(part);
 
 			if (node != null) {
 				samStartLocation.add(node);
-				System.out.println("avoid location saved : " + part1);
+				System.out.println("avoid location saved : " + part);
 
 			} else
 				System.out.println("this location is not in previous mapping, please input another location");
-		} else
-			System.out.println("please input a right format location, or input End");
+		}
 	}
 }
