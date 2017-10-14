@@ -86,6 +86,9 @@ public class Application {
 		
 		List<Stack<Node>> list3 = graphService.findAllPathsWithoutTrap(graph, a2, c2,traps);
 		System.out.println(list3);
+		System.out.println();
+		List<Stack<Node>> list4 = graphService.findAllPathsWithoutTrap(graph, a2, c3,traps);
+		System.out.println(list4);
 	    
 		
 	

@@ -137,7 +137,7 @@ public class GraphServiceImpl implements GraphService {
 	}
 
 	@Override
-	public Set<Node> lunchLocationWithoutException(Graph G, Node s, Node t, Node [] nodes) {
+	public Set<Node> lunchLocationWithoutException(Graph G, Node s, Node t, Node[] nodes) {
 
 		Set<Node> lunchLocation = lunchLocation(G, s, t);
 		for (Node n : nodes)
@@ -146,19 +146,16 @@ public class GraphServiceImpl implements GraphService {
 
 	}
 
-	
 	private static List<Stack<Node>> pathListWitoutTrap;
 
-	public List<Stack<Node>> findAllPathsWithoutTrap(Graph G, Node s, Node t,List <Node> traps) {
+	public List<Stack<Node>> findAllPathsWithoutTrap(Graph G, Node s, Node t, List<Node> traps) {
 		pathListWitoutTrap = new ArrayList<Stack<Node>>();
 
-		return enumerateWitoutTrap(G, s, t,traps);
+		return enumerateWitoutTrap(G, s, t, traps);
 	}
 
-	
-
 	// use DFS
-	private static List<Stack<Node>> enumerateWitoutTrap(Graph G, Node v, Node t,List <Node> traps) {
+	private static List<Stack<Node>> enumerateWitoutTrap(Graph G, Node v, Node t, List<Node> traps) {
 
 		// add node v to current path from s
 		path.push(v);
@@ -167,15 +164,27 @@ public class GraphServiceImpl implements GraphService {
 		// found path from s to t - currently prints in reverse order because of
 		// stack
 		if (v.equals(t)) {
-			@SuppressWarnings("unchecked")
-			Stack<Node> tempPath = (Stack<Node>) path.clone();
-			pathList.add(tempPath);
+			boolean hasTrap = false;
+			for (Node node : traps) {
+				if (path.contains(node)) {
+					hasTrap = true;
+					break;
+				}
+
+			}
+			if (!hasTrap) {
+				@SuppressWarnings("unchecked")
+				Stack<Node> tempPath = (Stack<Node>) path.clone();
+
+				pathList.add(tempPath);
+			}
+
 		}
 		// consider all neighbors that would continue path with repeating a node
 		else {
 			for (Node w : v.getAdjacent()) {
 				if (!onPath.contains(w))
-					enumerateWitoutTrap(G, w, t,traps);
+					enumerateWitoutTrap(G, w, t, traps);
 			}
 		}
 
