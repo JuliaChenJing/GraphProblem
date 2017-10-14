@@ -21,13 +21,16 @@ public class IO {
 	static Set<Node> samStartLocation;
 
 	public static void main(String[] args) {
-
 		graph = new Graph();
-		in = new Scanner(System.in);
 		graphService = new GraphServiceImpl();
 		avoidLocation = new HashSet<Node>();
 		peggyStartLocation = new HashSet<Node>();
 		samStartLocation = new HashSet<Node>();
+		inputData();
+	}
+
+	private static void inputData() {
+		in = new Scanner(System.in);
 		String line = "";
 
 		// Input the graph:
@@ -83,9 +86,7 @@ public class IO {
 			System.out.println("mapping saved : " + part1 + "-->" + part2);
 
 		} else
-
 			System.out.println("please input a right format mapping, or input Avoid");
-
 	}
 
 	private static void saveAvoidLocation(String string) {
@@ -123,11 +124,9 @@ public class IO {
 				peggyStartLocation.add(node1);
 				System.out.println("Peggy's location saved : " + part1);
 			} else
-
 				System.out.println("this location is not in previous mapping, please input another location");
 		} else
 			System.out.println("please input a right format location, or input Sam");
-
 	}
 
 	private static void saveSamLocation(String string) {
@@ -145,11 +144,8 @@ public class IO {
 				samStartLocation.add(node1);
 				System.out.println("Sam's  location saved : " + part1);
 			} else
-
 				System.out.println("this location is not in previous mapping, please input another location");
 		} else
 			System.out.println("please input a right format location, or input End");
-
 	}
-
 }
