@@ -159,7 +159,7 @@ public class IO {
 
 			if (node != null) {
 				peggyStartLocation.add(node);
-				System.out.println("avoid location saved : " + part);
+				System.out.println("Peggy location saved : " + part);
 
 			} else
 				System.out.println("this location is not in previous mapping, please input another location");
@@ -178,7 +178,7 @@ public class IO {
 
 			if (node != null) {
 				samStartLocation.add(node);
-				System.out.println("avoid location saved : " + part);
+				System.out.println("Sam location saved : " + part);
 
 			} else
 				System.out.println("this location is not in previous mapping, please input another location");
