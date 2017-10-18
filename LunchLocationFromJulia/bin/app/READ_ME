@@ -1,0 +1,50 @@
+-------------------INPUT---------------------------------
+Please input the sample input in the pdf:
+Map:
+a1 b1
+mapping saved : a1-->b1
+a2 b1
+mapping saved : a2-->b1
+a2 b2
+mapping saved : a2-->b2
+a2 b3
+mapping saved : a2-->b3
+b1 c1
+mapping saved : b1-->c1
+b2 c2
+mapping saved : b2-->c2
+b2 c3
+mapping saved : b2-->c3
+b3 c3
+mapping saved : b3-->c3
+avoid
+Graph [nodes=[a2, b3, c1, b1, c2, a1, b2, c3]]
+a2's adjacents are :[b3, b1, b2]
+b3's adjacents are :[c3]
+c1's adjacents are :[]
+b1's adjacents are :[c1]
+c2's adjacents are :[]
+a1's adjacents are :[b1]
+b2's adjacents are :[c2, c3]
+c3's adjacents are :[]
+
+Please input the avoid location:
+b2
+avoid location saved : b2
+peggy
+Avoid Location: [b2]
+Please input Peggy's start locations:
+a2
+avoid location saved : a2
+sam
+Peggy Start Location: [a2]
+Please input Sam's start locations(if finish, type end)
+c2 c3
+avoid location saved : c2
+avoid location saved : c3
+end
+Sam Start Location: [c2, c3]
+-------------------OUTPUT---------------------------------
+b3
+a2
+c3
