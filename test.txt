@@ -4,4 +4,7 @@ don't want to see change in git  git rm --cached .project
 
 git ignore work?
 
-gitignore name wrong
+gitignore name wrong‘
+
+
+added /test.txt, should work
