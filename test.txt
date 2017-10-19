@@ -1,3 +1,5 @@
 orignal
 
-don't want to see change in git
+don't want to see change in git  git rm --cached .project 
+
+git ignore work?
