@@ -1,7 +1,0 @@
-new test.txt
-
-updated
-
-update again
-
-not being deleted
